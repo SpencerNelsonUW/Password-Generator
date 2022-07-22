@@ -5,7 +5,7 @@ var numeral = ("0123456789");
 var specialchars = ("!@#$%^&*()");
 
 var userinputs;
-var passwordresult;
+var passwordresult = "";
 
 lowercase = lowercase.split("")
 uppercase = uppercase.split("")
@@ -41,7 +41,7 @@ function writePassword() {
             }
 
             for (let i = 0; i <= usercharacteramount; i++){
-            var passwordresult = userinputs[Math.floor(Math.random() * userinputs.length)]
+              passwordresult = passwordresult + userinputs[Math.floor(Math.random() * userinputs.length)]
             }
             console.log(passwordresult)
         }
