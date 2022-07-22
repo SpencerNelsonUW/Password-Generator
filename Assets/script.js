@@ -4,11 +4,13 @@ var uppercase = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 var numeral = ("0123456789");
 var specialchars = ("!@#$%^&*()");
 
-lowercase.split("")
-uppercase.split("")
-numeral.split("")
-specialchars.split("")
+var userinputs;
+var passwordresult;
 
+lowercase = lowercase.split("")
+uppercase = uppercase.split("")
+numeral = numeral.split("")
+specialchars = specialchars.split("")
 
 
 // Assignment Code
@@ -16,32 +18,39 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  let characteramount = prompt("Choose choose between 8 and 128 for password length")
+  let usercharacteramount = prompt("Choose choose between 8 and 128 for password length")
+    if (usercharacteramount > 7 && usercharacteramount < 129){
+      let userlowercase = prompt("would you like to include lowercase in your password?")
+      let useruppercase = prompt("would you like to include uppercase in your password?") 
+      let usernumeral = prompt("would you like to include numbers in your password?")
+      let userspecialchars = prompt("would you like to include special characters in your password?")
+        if (userlowercase !== "yes" && useruppercase !== "yes" && usernumeral !== "yes" && userspecialchars !== "yes"){
+          alert("please choose at least one character type for password generation")
+        } else {
+            if (userlowercase.toLowerCase() == "yes"){
+              userinputs = lowercase;
+            }
+            if (useruppercase.toLowerCase() == "yes"){
+              userinputs = userinputs.concat(uppercase)
+            }
+            if (usernumeral.toLowerCase() == "yes"){
+              userinputs = userinputs.concat(usernumeral)
+            }
+            if (userspecialchars.toLowerCase() == "yes"){
+              userinputs = userinputs.concat(userspecialchars)
+            }
 
-    if (characteramount > 7 && characteramount < 129){
-      let charactertype = prompt("please enter character types of " + "lowercase " + "uppercase " + "numeral " + "special")
-        if charactertype = ("lowercase" || "uppercase" || "numeral" || "special") { 
-          let specialchars = prompt("please enter special characters")
-            var pass = (false);
-            for(iteration = 0, iteration < specialchars.length() - 1, iteration++){
-              if (specialchars[iteration] == characteramount){
-              pass = true 
-              break
-              }
+            for (let i = 0; i <= usercharacteramount; i++){
+            var passwordresult = userinputs[Math.floor(Math.random() * userinputs.length)]
             }
-            if (pass = true){
-              console.log.("it worked")
-            } else {
-              console.log("failed")
-            }
+            console.log(passwordresult)
         }
-      else { prompt("please enter a valid character type")
-      }
-    } else {alert("please restart and choose a valid integer between 8 and 128")
-      }
-    
+      } else { 
+          alert("please enter at a number between 8 and 128")
+        }
+          
 
-  var password = generatePassword();
+  //var password = generatePassword();
   var passwordText = document.querySelector("#password");
 }
 
