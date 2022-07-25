@@ -1,4 +1,4 @@
-#Password Generator
+# Password Generator
 
 
 This password generator asks the user to specify password criteria, then generates a random password based on the criteria provided by the user.
